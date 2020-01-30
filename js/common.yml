@@ -1,5 +1,5 @@
 import:
-  - flash-global/travis:js/default_tests.yml@master
+  - flash-global/travis-public:js/default_tests.yml@master
 
 cache: npm
 
