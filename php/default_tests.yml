@@ -1,0 +1,12 @@
+script:
+  - if [[ -f "codeception.yml" ]]; then
+      vendor/bin/codecept run;
+    else
+      echo "0";
+    fi;
+  - if [[ -f "phpcs.xml" ]]; then
+      vendor/bin/phpcs --standard=phpcs.xml;
+    else
+      echo "0";
+    fi;
+  - find -L . -path ./vendor -prune -o \( -name '*.php' -o -name '*.inc' \) -exec php -l {} \;

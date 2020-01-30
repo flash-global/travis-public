@@ -1,0 +1,6 @@
+before_script:
+  - vendor/bin/phing -f phing.xml local-setup-system -D app.env=$env
+  - php bin/console cache:clear --no-debug -e $env
+
+before_deploy:
+  - rm -rf app/config/local

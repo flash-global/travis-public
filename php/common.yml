@@ -1,0 +1,13 @@
+import:
+  - flash-global/travis:php/default_tests.yml@master
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+
+before_script:
+  - composer install --no-interaction --dev --no-scripts
+
+before_deploy:
+  - mkdir -p $TRAVIS_BUILD_DIR/app/config
+  - rm -rf phpcs.xml grumphp.yml

@@ -1,0 +1,10 @@
+import:
+  - flash-global/travis:js/default_tests.yml@master
+
+cache: npm
+
+before_script:
+  - npm ci
+
+before_deploy:
+  - npm run build
