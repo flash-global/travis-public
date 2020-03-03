@@ -1,12 +1,12 @@
 script:
   - if [[ -f "codeception.yml" ]]; then
-      vendor/bin/codecept run;
+    vendor/bin/codecept run unit;
     else
-      echo "0";
+    echo "0";
     fi;
   - if [[ -f "phpcs.xml" ]]; then
-      vendor/bin/phpcs --standard=phpcs.xml;
+    vendor/bin/phpcs --standard=phpcs.xml;
     else
-      echo "0";
+    echo "0";
     fi;
-  - find -L . -path ./vendor -prune -o \( -name '*.php' -o -name '*.inc' \) -exec php -l {} \;
+  - if find . \( -name '*.php' -o -name '*.inc' \) ! -path "./vendor/*" -print0 | xargs -0 -n 1 -P 8 php -l | grep -v "No syntax errors detected"; then exit 1; fi

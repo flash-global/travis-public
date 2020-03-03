@@ -1,0 +1,5 @@
+before_script:
+  - gem install travis --no-rdoc --no-ri
+
+script:
+  - if find . -name "*.yml" -exec travis lint -i --skip-completion-check -q {} \; | grep -v "Hooray"; then exit 1; fi

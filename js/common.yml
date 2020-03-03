@@ -6,5 +6,6 @@ cache: npm
 before_script:
   - npm ci
 
+# You can define additional task to prepare your package (remove node_module for example)
 before_deploy:
   - npm run build

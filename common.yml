@@ -1,0 +1,3 @@
+git:
+  quiet: true
+  depth: false
